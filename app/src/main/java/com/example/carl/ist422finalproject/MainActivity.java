@@ -22,4 +22,8 @@ public class MainActivity extends AppCompatActivity {
     String cheese = "Damn, Get em next time";
 
     String boi = "Ya, you lost it";
+
+    String boi = "Ya, you lost it";
+
+    String stringCheeseBoi = "String Cheese bois";
 }
