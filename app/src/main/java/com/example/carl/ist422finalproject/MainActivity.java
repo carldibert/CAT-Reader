@@ -18,4 +18,8 @@ public class MainActivity extends AppCompatActivity {
             "Dub" +
             "duuuuuub"
             ;
+
+    String cheese = "Damn, Get em next time";
+
+    String boi = "Ya, you lost it";
 }
