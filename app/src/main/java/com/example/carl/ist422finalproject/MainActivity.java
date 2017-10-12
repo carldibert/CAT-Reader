@@ -12,4 +12,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     String high = "hello";
+
+    String Rick = "Wubba"
+            + "Lubba" +
+            "Dub" +
+            "duuuuuub"
+            ;
 }
