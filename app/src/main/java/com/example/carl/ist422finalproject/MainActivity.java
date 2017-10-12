@@ -20,4 +20,6 @@ public class MainActivity extends AppCompatActivity {
             ;
 
     String boi = "Ya, you lost it";
+
+    String stringCheeseBoi = "String Cheese bois";
 }
