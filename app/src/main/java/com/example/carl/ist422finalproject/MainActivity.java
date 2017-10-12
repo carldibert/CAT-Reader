@@ -18,4 +18,6 @@ public class MainActivity extends AppCompatActivity {
             "Dub" +
             "duuuuuub"
             ;
+
+    String boi = "Ya, you lost it";
 }
