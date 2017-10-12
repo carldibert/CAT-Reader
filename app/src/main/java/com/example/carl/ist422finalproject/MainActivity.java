@@ -23,7 +23,8 @@ public class MainActivity extends AppCompatActivity {
 
     String boi = "Ya, you lost it";
 
-    String boi = "Ya, you lost it";
+
+    String git = "GitHub Is POS and if they are monitoring what i am writing, t(-.-t)";
 
     String stringCheeseBoi = "String Cheese bois";
 }
