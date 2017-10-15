@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">IST422FinalProject</string>
+    <string name="search">Search</string>
+    <string name="searchbtn">Search</string>
+    <string name="upload_pdf">Upload PDF</string>
+    <string name="what_would_you_like_to_read_today">What would you like to read today?</string>
 </resources>
