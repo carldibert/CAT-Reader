@@ -97,43 +97,52 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
         android:orientation="vertical"
+        android:layout_marginTop="8dp"
         app:layout_constraintTop_toBottomOf="@+id/editText"
+        android:layout_marginRight="8dp"
         app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginLeft="8dp"
         app:layout_constraintLeft_toLeftOf="parent"
-        tools:layout_constraintRight_creator="1"
-        tools:layout_constraintLeft_creator="1">
-
-        <Button
-            android:id="@+id/mangaBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Search Manga" />
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp">
 
         <Button
             android:id="@+id/comicBtn"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Search Comics" />
+            android:text="Search Comics"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="0dp"
+            tools:ignore="HardcodedText" />
 
+        <Button
+            android:id="@+id/mangaBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Search Manga"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="0dp"
+            tools:ignore="HardcodedText" />
+
+        <Button
+            android:id="@+id/searchHistory"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Search History"
+            tools:ignore="HardcodedText" />
     </LinearLayout>
 
     <Button
-        android:id="@+id/sendToSearchResult"
+        android:id="@+id/button7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Send To Search Result Activity"
-        tools:layout_constraintRight_creator="1"
-        tools:layout_constraintBottom_creator="1"
-        android:layout_marginStart="33dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginEnd="32dp"
-        app:layout_constraintRight_toRightOf="@+id/textView"
-        tools:layout_constraintLeft_creator="1"
-        android:layout_marginBottom="94dp"
-        app:layout_constraintLeft_toLeftOf="@+id/linearLayout3" />
+        android:background="@drawable/settings"
+        tools:layout_editor_absoluteX="280dp"
+        tools:layout_editor_absoluteY="16dp"
+        tools:ignore="MissingConstraints" />
 
 </android.support.constraint.ConstraintLayout>
