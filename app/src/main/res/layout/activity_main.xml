@@ -20,7 +20,8 @@
         app:layout_constraintRight_toRightOf="parent"
         tools:ignore="MissingConstraints"
         tools:layout_constraintLeft_creator="1"
-        tools:layout_constraintRight_creator="1">
+        tools:layout_constraintRight_creator="1"
+        android:id="@+id/linearLayout3">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -31,30 +32,30 @@
             tools:layout_editor_absoluteY="0dp">
 
             <Button
-                android:id="@+id/button15"
+                android:id="@+id/favortiesBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Favorite Books"
+                android:text="Favorites"
                 android:textSize="12sp"
                 tools:ignore="ButtonStyle,HardcodedText" />
 
             <Button
-                android:id="@+id/button14"
+                android:id="@+id/bookmarksBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Currently Reading"
+                android:text="Bookmarks"
                 android:textAlignment="center"
                 android:textSize="12sp"
                 tools:ignore="ButtonStyle,HardcodedText" />
 
             <Button
-                android:id="@+id/button13"
+                android:id="@+id/browseBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="PDF Library"
+                android:text="Browse"
                 android:textSize="12sp"
                 tools:ignore="ButtonStyle,HardcodedText" />
         </LinearLayout>
@@ -82,7 +83,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="17dp"
         android:layout_weight="1"
         android:ems="10"
         android:hint="Search"
@@ -93,49 +94,31 @@
         tools:layout_constraintLeft_creator="1"
         tools:layout_constraintTop_creator="1" />
 
-    <Button
-        android:id="@+id/button"
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="9dp"
-        android:layout_marginStart="9dp"
-        android:layout_marginTop="52dp"
-        android:layout_weight="1"
-        android:text="Search"
-        app:layout_constraintLeft_toLeftOf="@+id/button2"
+        android:layout_marginTop="25dp"
+        android:orientation="vertical"
         app:layout_constraintTop_toBottomOf="@+id/editText"
-        tools:ignore="HardcodedText,MissingConstraints,RtlHardcoded"
-        tools:layout_constraintLeft_creator="1"
-        tools:layout_constraintTop_creator="1"
-        />
-
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="13dp"
-        android:layout_weight="1"
-        android:text="Upload PDF"
-        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginRight="8dp"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button"
-        tools:ignore="HardcodedText,MissingConstraints"
-        tools:layout_constraintLeft_creator="1"
-        tools:layout_constraintRight_creator="1"
-        tools:layout_constraintTop_creator="1"
-        app:layout_constraintHorizontal_bias="0.501" />
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent">
 
-    <Button
-        android:id="@+id/sendToSearchResult"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="36dp"
-        android:text="Send To Search Result"
-        app:layout_constraintLeft_toLeftOf="@+id/button2"
-        app:layout_constraintTop_toBottomOf="@+id/button2"
-        tools:layout_constraintLeft_creator="1"
-        tools:layout_constraintTop_creator="1"
-        android:layout_marginLeft="-86dp" />
+        <Button
+            android:id="@+id/mangaBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Search Manga" />
+
+        <Button
+            android:id="@+id/comicBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Search Comics" />
+
+    </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>
