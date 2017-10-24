@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background">
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="CAT reader application was created by three students (Tyler Brown, Carl Dibert and Alexa Schnetzler) as a final project for their mobile programming class.  All creative designs and concepts introduced within this app belong to these students.  These students acknowledge that all comics, manga, images, etc do not belong to them.  Any use of anything within this app may be a violance of the law and have severe consequences for the user. By using this application the user acknowledges all of the conditions previously stated and will abide by these conditions while using this application.  Any breach of these conditions will lead to the user being banned from using the application and may lead to legal action taken against the user. The user will be notified of any changes to these conditions and must abide by any new conditions that may have been added since they have used the application. Thank you for reading these conditions and helping us create a better app for all of our users. "
+        tools:ignore="HardcodedText,MissingConstraints"
+        tools:layout_constraintTop_creator="1"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintBottom_creator="1"
+        android:layout_marginStart="4dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginEnd="4dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/creditsTitle"
+        tools:layout_constraintLeft_creator="1"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+    <EditText
+        android:id="@+id/creditsTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="7dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="DISCLAIMER"
+        android:textSize="36sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginStart="7dp"
+        tools:ignore="HardcodedText,LabelFor,MissingConstraints,RtlHardcoded"
+        tools:layout_constraintTop_creator="1"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</android.support.constraint.ConstraintLayout>
