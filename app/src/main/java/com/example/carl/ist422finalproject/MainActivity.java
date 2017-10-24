@@ -17,14 +17,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-//        Button funShitButton = (Button) findViewById();
-//        funShitButton.setOnClickListener(new View.OnClickListener(){
-//            @Override
-//            public void onClick(View v){
-//                new internet().execute();
-//            }
-//        });
-
         Button sendToMainScreen = (Button) findViewById(R.id.sendToSearchResult);
         sendToMainScreen.setOnClickListener(new View.OnClickListener(){
             @Override
