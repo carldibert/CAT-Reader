@@ -21,7 +21,7 @@ public class SearchResult extends AppCompatActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.search_result_page);
+        setContentView(R.layout.reults);
 
         Button button3 = (Button) findViewById(R.id.button3);
         button3.setOnClickListener(new View.OnClickListener(){

@@ -18,33 +18,18 @@
         tools:ignore="HardcodedText,LabelFor,MissingConstraints" />
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="289dp"
         android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
         android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginTop="8dp"
-        app:layout_constraintTop_toBottomOf="@+id/appVersionTxt">
-
-        <Button
-            android:id="@+id/startedBtn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Getting Started"
-            tools:ignore="HardcodedText" />
-
-        <Button
-            android:id="@+id/faqsBtn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="FAQs"
-            tools:ignore="HardcodedText" />
+        app:layout_constraintRight_toRightOf="parent">
 
         <Button
             android:id="@+id/disclaimerBtn"
@@ -72,38 +57,21 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Default Search Settings"
+            android:textSize="24sp"
             tools:ignore="HardcodedText" />
 
-        <RadioGroup
-            android:id="@+id/defaultSearchBtns"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1">
-
-            <RadioButton
-                android:id="@+id/comicRB"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Comics"
-                tools:ignore="HardcodedText" />
-
-            <RadioButton
-                android:id="@+id/mangaRB"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Manga"
-                tools:ignore="HardcodedText" />
-        </RadioGroup>
-
-        <Button
-            android:id="@+id/clearBtn"
+        <Spinner
+            android:id="@+id/comicDropDown"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Erase All Data"
-            tools:ignore="HardcodedText" />
+            android:layout_weight="1" />
+
+        <Spinner
+            android:id="@+id/mangaDropDown"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>
