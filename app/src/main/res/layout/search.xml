@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/animecats">
+    android:background="@drawable/background">
 
     <LinearLayout
         android:layout_width="0dp"
@@ -32,25 +32,49 @@
             tools:layout_editor_absoluteY="0dp">
 
             <Button
-                android:id="@+id/bookmarksBtn"
+                android:id="@+id/favortiesBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Manga"
-                android:textAlignment="center"
+                android:text="Favorites"
                 android:textSize="12sp"
                 tools:ignore="ButtonStyle,HardcodedText" />
 
             <Button
-                android:id="@+id/browseBtn"
+                android:id="@+id/bookmarksBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Comic"
+                android:text="Bookmarks"
+                android:textAlignment="center"
                 android:textSize="12sp"
                 tools:ignore="ButtonStyle,HardcodedText" />
+
         </LinearLayout>
     </LinearLayout>
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Search"
+        tools:layout_editor_absoluteX="280dp"
+        tools:layout_editor_absoluteY="11dp" />
+
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_weight="1"
+        android:ems="10"
+        android:hint="Search"
+        android:inputType="text"
+        tools:ignore="HardcodedText,MissingConstraints"
+        tools:layout_constraintLeft_creator="1"
+        tools:layout_constraintTop_creator="1"
+        tools:layout_editor_absoluteY="16dp"
+        tools:layout_editor_absoluteX="16dp" />
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -62,17 +86,35 @@
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
-        tools:layout_editor_absoluteY="206dp">
+        tools:layout_editor_absoluteY="119dp">
 
+        <Button
+            android:id="@+id/comicBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Categories"
+            tools:ignore="HardcodedText"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="0dp" />
+
+        <Button
+            android:id="@+id/mangaBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Most Popular"
+            tools:ignore="HardcodedText"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="0dp" />
+
+        <Button
+            android:id="@+id/searchHistory"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Newest Updates"
+            tools:ignore="HardcodedText" />
     </LinearLayout>
-
-    <Button
-        android:id="@+id/button7"
-        android:layout_width="117dp"
-        android:layout_height="115dp"
-        android:background="@drawable/colorfulsetting"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="251dp"
-        tools:layout_editor_absoluteY="6dp" />
 
 </android.support.constraint.ConstraintLayout>
