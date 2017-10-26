@@ -38,7 +38,7 @@
     <ListView
         android:layout_width="388dp"
         android:layout_height="478dp"
-        android:entries="Item 1"
+
         tools:layout_editor_absoluteX="4dp"
         tools:layout_editor_absoluteY="167dp"
         tools:ignore="MissingConstraints" />

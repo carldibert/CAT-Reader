@@ -1,6 +1,6 @@
 package com.example.carl.ist422finalproject;
 
-import android.content.Intent;
+
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -11,6 +11,8 @@ import android.widget.TextView;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
+
+import java.util.ArrayList;
 
 /**
  * Created by carl on 10/19/17.
@@ -35,23 +37,35 @@ public class SearchResult extends AppCompatActivity{
 
     public class categories extends AsyncTask<Void, Void, Void> {
 
-        String words;
-
-        Elements genres;
+        ArrayList<String> sam = new ArrayList<String>();
 
         @Override
         protected Void doInBackground(Void... params){
+
+            ArrayList<String> copy  = new ArrayList<String>();
 
             try{
                 Document doc = Jsoup.connect("http://www.mangareader.net/search")
                         .followRedirects(false)
                         .get();
 
-                words = doc.title();
 
-                genres = doc.getElementsByClass("genre r");
+                Elements genres = doc.getElementsByClass("genre r0");
+
+                for(int i=0; i<genres.size(); i++)
+                    copy.add(genres.get(i).toString());
             } catch(Exception e){
                 e.printStackTrace();
+            }
+
+            String[] n;
+            String[] t;
+            String temp = "";
+            for(int i=0; i<copy.size(); i++){
+                n = copy.get(i).split(">");
+                t = n[1].toString().split("<");
+                temp = t[0].toString().replaceAll("\\s+", "");
+                sam.add(temp);
             }
 
 
@@ -62,7 +76,7 @@ public class SearchResult extends AppCompatActivity{
         protected void onPostExecute(Void aVoid) {
             super.onPostExecute(aVoid);
             TextView text = (TextView) findViewById(R.id.textView2);
-            text.setText(genres.size());
+            text.setText(sam.get(36));
         }
     }
 
