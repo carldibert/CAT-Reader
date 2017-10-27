@@ -32,7 +32,7 @@
             tools:layout_editor_absoluteY="0dp">
 
             <Button
-                android:id="@+id/bookmarksBtn"
+                android:id="@+id/mangaButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -42,7 +42,7 @@
                 tools:ignore="ButtonStyle,HardcodedText" />
 
             <Button
-                android:id="@+id/browseBtn"
+                android:id="@+id/comicButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"

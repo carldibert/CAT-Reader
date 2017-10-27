@@ -1,11 +1,11 @@
 package com.example.carl.ist422finalproject;
 
-
+import android.app.Activity;
+import android.app.ListActivity;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.view.View;
-import android.widget.Button;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import org.jsoup.Jsoup;
@@ -15,27 +15,22 @@ import org.jsoup.select.Elements;
 import java.util.ArrayList;
 
 /**
- * Created by carl on 10/19/17.
+ * Created by Carl on 10/26/2017.
  */
 
-public class SearchResult extends AppCompatActivity{
-
+public class MangaCategoryViewer extends ListActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.reults);
+        setContentView(R.layout.manga_categories);
 
-        Button button3 = (Button) findViewById(R.id.button3);
-        button3.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v){
-                new categories().execute();
-            }
-        });
+        new MangaReaderCategories().execute();
 
+        //add onclick listener to send user to tab with all of the mangos of their choice for the category of their choosing
+        //this.onListItemClick();
     }
 
-    public class categories extends AsyncTask<Void, Void, Void> {
+    private class MangaReaderCategories extends AsyncTask<Void, Void, Void> {
 
         ArrayList<String> sam = new ArrayList<String>();
 
@@ -68,16 +63,18 @@ public class SearchResult extends AppCompatActivity{
                 sam.add(temp);
             }
 
-
             return null;
         }
 
         @Override
         protected void onPostExecute(Void aVoid) {
             super.onPostExecute(aVoid);
-            TextView text = (TextView) findViewById(R.id.textView2);
-            text.setText(sam.get(36));
+
+            String[] categoriesArray = sam.toArray(new String[sam.size()]);
+            ArrayAdapter<String> adapter = new ArrayAdapter<String>(getListView().getContext(), android.R.layout.simple_list_item_1, categoriesArray);
+            getListView().setAdapter(adapter);
         }
     }
-
 }
+
+
