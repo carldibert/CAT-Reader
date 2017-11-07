@@ -3,7 +3,10 @@ package com.example.carl.ist422finalproject;
 import android.app.ListActivity;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.ListView;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -12,13 +15,14 @@ import org.jsoup.select.Elements;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import static java.lang.String.valueOf;
+
 /**
  * Created by Carl on 10/26/2017.
  */
 
 public class MangaCategoryViewer extends ListActivity {
-    ArrayList<HashMap<String, String>> Item_List;
-    ArrayList stock_list;
+    ArrayList<String> totalMangos = new ArrayList<String>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,9 +30,14 @@ public class MangaCategoryViewer extends ListActivity {
         setContentView(R.layout.manga_categories);
 
         new MangaReaderCategories().execute();
+    }
 
-        //add onclick listener to send user to tab with all of the mangos of their choice for the category of their choosing
-        //this.onListItemClick();
+    @Override
+    protected void onListItemClick(ListView l, View v, int position, long id) {
+        super.onListItemClick(l, v, position, id);
+        String val = valueOf(position);
+        String val2 = totalMangos.get(position);
+        Log.d("Selection", val2);
     }
 
     private class MangaReaderCategories extends AsyncTask<Void, Void, Void> {
@@ -64,6 +73,8 @@ public class MangaCategoryViewer extends ListActivity {
                 sam.add(temp);
             }
 
+            totalMangos = sam;
+
             return null;
         }
 
@@ -76,29 +87,6 @@ public class MangaCategoryViewer extends ListActivity {
             ArrayAdapter<String> adapter = new ArrayAdapter<String>(getListView().getContext(),
                     android.R.layout.simple_list_item_1, categoriesArray);
             getListView().setAdapter(adapter);
-
-
-//      I have no Idea What I'm Doing
-//            getListView().setOnClickListener(new AdapterView.OnItemClickListener() {
-//                @Override
-//                public void onItemClick(AdapterView<?> parent, View view, int position,
-//                                        long id) {
-//                    stock_list.add(Item_List.get(position));
-
-
-//                    .setOnClickListener(new View.OnClickListener() {
-//                        @Override
-//                        public void onClick(View v) {
-//                            Intent modify_intent = new Intent(grabedDb.this,
-//                                    updatedata.class);
-//                            modify_intent.putStringArrayListExtra("stock_list", stock_list);
-//
-//                            startActivity(modify_intent);
-//                        }
-//                    });
-//        }
-//
-//            });
         }
     }
 }
