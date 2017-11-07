@@ -99,7 +99,6 @@ public class MangaCategoryViewer extends ListActivity {
 //        }
 //
 //            });
-
         }
     }
 }
