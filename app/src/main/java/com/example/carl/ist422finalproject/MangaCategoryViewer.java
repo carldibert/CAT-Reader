@@ -46,6 +46,7 @@ public class MangaCategoryViewer extends ListActivity {
 
         //send to new page with the string categoryExtension as the websiteURL
         //tyler todo
+        //get alexa to add the new page to the manifest
     }
 
     //gets the total URL of the category that they are searching for
