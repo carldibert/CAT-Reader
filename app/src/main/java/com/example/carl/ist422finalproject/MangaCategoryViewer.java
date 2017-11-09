@@ -36,10 +36,102 @@ public class MangaCategoryViewer extends ListActivity {
     protected void onListItemClick(ListView l, View v, int position, long id) {
         super.onListItemClick(l, v, position, id);
         String val = valueOf(position);
-        String val2 = totalMangos.get(position);
-        Log.d("Selection", val2);
+        String val2 = totalMangos.get(position) + " " + position;
+
+        //the URL for the complete URL of selection
+        String categoryExtension = getCategoryExtension(position);
+
+        //console debugging purposes
+        Log.d("Selection", categoryExtension);
+
+        //send to new page with the string categoryExtension as the websiteURL
+        //tyler todo
     }
 
+    //gets the total URL of the category that they are searching for
+    private String getCategoryExtension(int n){
+        String returnString = "";
+
+        if(n==0){
+            returnString = "http://www.mangareader.net/search/?w=&rd=0&status=0&order=0&genre=1000000000000000000000000000000000000&p=0";
+        }else if (n==1){
+            returnString = "http://www.mangareader.net/search/?w=&rd=&status=&order=&genre=0100000000000000000000000000000000000&p=0";
+        }else if (n==2){
+            returnString = "http://www.mangareader.net/search/?w=&rd=&status=&order=&genre=0100000000000000000000000000000000000&p=0";
+        }else if (n==3){
+            returnString = "http://www.mangareader.net/search/?w=&rd=0&status=0&order=0&genre=0001000000000000000000000000000000000&p=0";
+        }else if (n==4){
+            returnString = "http://www.mangareader.net/search/?w=&rd=&status=&order=&genre=0000100000000000000000000000000000000&p=0";
+        }else if (n==5){
+            returnString = "http://www.mangareader.net/search/?w=&rd=0&status=0&order=0&genre=0000010000000000000000000000000000000&p=0";
+        }else if (n==6){
+            returnString = "http://www.mangareader.net/search/?w=&rd=&status=&order=&genre=0000001000000000000000000000000000000&p=0";
+        }else if (n==7){
+            returnString = "http://www.mangareader.net/search/?w=&rd=0&status=0&order=0&genre=0000000100000000000000000000000000000&p=0";
+        }else if (n==8){
+            returnString = "http://www.mangareader.net/search/?w=&rd=&status=&order=&genre=0000000010000000000000000000000000000&p=0";
+        }else if (n==9){
+            returnString = "http://www.mangareader.net/search/?w=&rd=0&status=0&order=0&genre=0000000001000000000000000000000000000&p=0";
+        }else if (n==10){
+            returnString = "http://www.mangareader.net/search/?w=&rd=&status=&order=&genre=0000000000100000000000000000000000000&p=0";
+        }else if (n==11){
+            returnString = "http://www.mangareader.net/search/?w=&rd=0&status=0&order=0&genre=0000000000010000000000000000000000000&p=0";
+        }else if (n==12){
+            returnString = "http://www.mangareader.net/search/?w=&rd=&status=&order=&genre=0000000000001000000000000000000000000&p=0";
+        }else if (n==13){
+            returnString = "http://www.mangareader.net/search/?w=&rd=0&status=0&order=0&genre=0000000000000100000000000000000000000&p=0";
+        }else if (n==14){
+            returnString = "http://www.mangareader.net/search/?w=&rd=&status=&order=&genre=0000000000000010000000000000000000000&p=0";
+        }else if (n==15){
+            returnString = "http://www.mangareader.net/search/?w=&rd=0&status=0&order=0&genre=0000000000000001000000000000000000000&p=0";
+        }else if (n==16){
+            returnString = "http://www.mangareader.net/search/?w=&rd=&status=&order=&genre=0000000000000000100000000000000000000&p=0";
+        }else if (n==17){
+            returnString = "http://www.mangareader.net/search/?w=&rd=0&status=0&order=0&genre=0000000000000000010000000000000000000&p=0";
+        }else if (n==18){
+            returnString = "http://www.mangareader.net/search/?w=&rd=&status=&order=&genre=0000000000000000001000000000000000000&p=0";
+        }else if (n==19){
+            returnString = "http://www.mangareader.net/search/?w=&rd=0&status=0&order=0&genre=0000000000000000000100000000000000000&p=0";
+        }else if (n==20){
+            returnString = "http://www.mangareader.net/search/?w=&rd=&status=&order=&genre=0000000000000000000010000000000000000&p=0";
+        }else if (n==21){
+            returnString = "http://www.mangareader.net/search/?w=&rd=0&status=0&order=0&genre=0000000000000000000001000000000000000&p=0";
+        }else if (n==22){
+            returnString = "http://www.mangareader.net/search/?w=&rd=&status=&order=&genre=0000000000000000000000100000000000000&p=0";
+        }else if (n==23){
+            returnString = "http://www.mangareader.net/search/?w=&rd=0&status=0&order=0&genre=0000000000000000000000010000000000000&p=0";
+        }else if (n==24){
+            returnString = "http://www.mangareader.net/search/?w=&rd=&status=&order=&genre=0000000000000000000000001000000000000&p=0";
+        }else if (n==25){
+            returnString = "http://www.mangareader.net/search/?w=&rd=0&status=0&order=0&genre=0000000000000000000000000100000000000&p=0";
+        }else if (n==26){
+            returnString = "http://www.mangareader.net/search/?w=&rd=&status=&order=&genre=0000000000000000000000000010000000000&p=0";
+        }else if (n==27){
+            returnString = "http://www.mangareader.net/search/?w=&rd=0&status=0&order=0&genre=0000000000000000000000000001000000000&p=0";
+        }else if (n==28){
+            returnString = "http://www.mangareader.net/search/?w=&rd=&status=&order=&genre=0000000000000000000000000000100000000&p=0";
+        }else if (n==29){
+            returnString = "http://www.mangareader.net/search/?w=&rd=0&status=0&order=0&genre=0000000000000000000000000000010000000&p=0";
+        }else if (n==30){
+            returnString = "http://www.mangareader.net/search/?w=&rd=&status=&order=&genre=0000000000000000000000000000001000000&p=0";
+        }else if (n==31){
+            returnString = "http://www.mangareader.net/search/?w=&rd=0&status=0&order=0&genre=0000000000000000000000000000000100000&p=0";
+        }else if (n==32){
+            returnString = "http://www.mangareader.net/search/?w=&rd=&status=&order=&genre=0000000000000000000000000000000010000&p=0";
+        }else if (n==33){
+            returnString = "http://www.mangareader.net/search/?w=&rd=0&status=0&order=0&genre=0000000000000000000000000000000001000&p=0";
+        }else if (n==34){
+            returnString = "http://www.mangareader.net/search/?w=&rd=&status=&order=&genre=0000000000000000000000000000000000100&p=0";
+        }else if (n==35){
+            returnString = "http://www.mangareader.net/search/?w=&rd=0&status=0&order=0&genre=0000000000000000000000000000000000010&p=0";
+        }else if (n==36){
+            returnString = "http://www.mangareader.net/search/?w=&rd=&status=&order=&genre=0000000000000000000000000000000000001&p=0";
+        }
+
+        return returnString;
+    }
+
+    //populates the listview with all of the contents of the categories
     private class MangaReaderCategories extends AsyncTask<Void, Void, Void> {
 
         ArrayList<String> sam = new ArrayList<String>();
