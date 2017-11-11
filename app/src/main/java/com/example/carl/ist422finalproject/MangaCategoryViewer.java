@@ -1,6 +1,7 @@
 package com.example.carl.ist422finalproject;
 
 import android.app.ListActivity;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -13,7 +14,6 @@ import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 import static java.lang.String.valueOf;
 
@@ -35,18 +35,14 @@ public class MangaCategoryViewer extends ListActivity {
     @Override
     protected void onListItemClick(ListView l, View v, int position, long id) {
         super.onListItemClick(l, v, position, id);
-        String val = valueOf(position);
-        String val2 = totalMangos.get(position) + " " + position;
 
         //the URL for the complete URL of selection
         String categoryExtension = getCategoryExtension(position);
 
-        //console debugging purposes
-        Log.d("Selection", categoryExtension);
-
         //send to new page with the string categoryExtension as the websiteURL
-        //tyler todo
-        //get alexa to add the new page to the manifest
+        Intent intent = new Intent(MangaCategoryViewer.this, MangaCategoriesSearchTab.class);
+        intent.putExtra("WebsiteURL",  categoryExtension);
+        startActivity(intent);
     }
 
     //gets the total URL of the category that they are searching for
@@ -135,7 +131,7 @@ public class MangaCategoryViewer extends ListActivity {
     //populates the listview with all of the contents of the categories
     private class MangaReaderCategories extends AsyncTask<Void, Void, Void> {
 
-        ArrayList<String> sam = new ArrayList<String>();
+        ArrayList<String> sam = new ArrayList<>();
 
         @Override
         protected Void doInBackground(Void... params) {
@@ -177,7 +173,7 @@ public class MangaCategoryViewer extends ListActivity {
 
 
             String[] categoriesArray = sam.toArray(new String[sam.size()]);
-            ArrayAdapter<String> adapter = new ArrayAdapter<String>(getListView().getContext(),
+            ArrayAdapter<String> adapter = new ArrayAdapter<>(getListView().getContext(),
                     android.R.layout.simple_list_item_1, categoriesArray);
             getListView().setAdapter(adapter);
         }
