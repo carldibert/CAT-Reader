@@ -5,4 +5,5 @@
     <string name="upload_pdf">Upload PDF</string>
     <string name="what_would_you_like_to_read_today">What would you like to read today?</string>
     <string name="title_activity_manga_main_page">MangaMainPage</string>
+    <string name="search">Search</string>
 </resources>

@@ -55,7 +55,7 @@
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Search"
+        android:text="@string/search"
         app:layout_constraintBaseline_toBaselineOf="@+id/searchBox"
         app:layout_constraintStart_toEndOf="@+id/searchBox" />
 
