@@ -26,20 +26,5 @@ public class MangaMainPage extends AppCompatActivity{
                 startActivity(new Intent(MangaMainPage.this, MangaCategoryViewer.class));
             }
         });
-
-        String mostPopularWebsiteURL = "http://www.mangareader.net/popular";
-        Intent mostPopularIntent = new Intent(MangaMainPage.this, MangaCategoriesSearchTab.class);
-        mostPopularIntent.putExtra("WebsiteURL", mostPopularWebsiteURL);
-        startActivity(mostPopularIntent);
-
-        String searchWebsiteURL = "http://www.mangareader.net/search/?w=" + replacedSearchText + "&rd=0&status=0&order=0&genre=0000000000000000000000000000000000000&p=0";
-        Intent searchItent = new Intent(MangaMainPage.this, MangaCategoriesSearchTab.class);
-        searchItent.putExtra("WebsiteURL", searchWebsiteURL);
-        startActivity(searchItent);
-
-        String mostRecentWebsiteURL = "http://www.mangareader.net/latest";
-        Intent mostRecentIntent = new Intent(MangaMainPage.this, MangaCategoriesSearchTab.class);
-        mostRecentIntent.putExtra("WebsiteURL", mostRecentWebsiteURL);
-        startActivity(mostRecentIntent);
     }
 }
