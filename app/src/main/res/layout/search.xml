@@ -52,10 +52,10 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/srchbutton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/search"
+        android:text="search"
         app:layout_constraintBaseline_toBaselineOf="@+id/searchBox"
         app:layout_constraintStart_toEndOf="@+id/searchBox" />
 
@@ -81,6 +81,7 @@
         android:ems="10"
         android:hint="Search"
         android:inputType="text"
+        android:selectAllOnFocus="false"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="HardcodedText,MissingConstraints"

@@ -1,12 +1,10 @@
 package com.example.carl.ist422finalproject;
 
 import android.content.Intent;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
 
 /**
  * Created by Carl on 10/26/2017.
@@ -26,5 +24,20 @@ public class MangaMainPage extends AppCompatActivity{
                 startActivity(new Intent(MangaMainPage.this, MangaCategoryViewer.class));
             }
         });
+        Button srchbutton = (Button) findViewById(R.id.srchbutton);
+        //insert onclick Activity
+
+        Button mostPopularButton = (Button) findViewById(R.id.mostPopularButton);
+        //insert onclick ACtivity
+
+        Button newestUpdatesButton = (Button) findViewById(R.id.newestUpdatesButton);
+        //insert onclick Activity
+
+        Button favortiesBtn = (Button) findViewById(R.id.favortiesBtn);
+        //inset onclick Activity
+
+        Button bookmarksBtn = (Button) findViewById(R.id.bookmarksBtn);
+        //inset onclick activity
     }
+
 }
