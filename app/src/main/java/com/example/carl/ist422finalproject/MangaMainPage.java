@@ -25,6 +25,7 @@ public class MangaMainPage extends AppCompatActivity{
                 startActivity(new Intent(MangaMainPage.this, MangaCategoryViewer.class));
             }
         });
+
         Button searchButton = (Button) findViewById(R.id.srchbutton);
         searchButton.setOnClickListener(new View.OnClickListener() {
             @Override
