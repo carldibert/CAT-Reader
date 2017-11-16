@@ -77,12 +77,6 @@ public class MangaSearchTab extends AppCompatActivity{
 
                 srchEdit = Search.replaceAll(";", "%3B");
                 Search = srchEdit;
-                //Error here
-                srchEdit = Search.replaceAll("(", "%28");
-                Search = srchEdit;
-
-                srchEdit = Search.replaceAll(")", "%29");
-                Search = srchEdit;
 
                 srchEdit = Search.replaceAll("&", "%26");
                 Search = srchEdit;
@@ -99,14 +93,8 @@ public class MangaSearchTab extends AppCompatActivity{
 
                 srchEdit = Search.replaceAll("!", "%21");
                 Search = srchEdit;
-                //Error
-                srchEdit = Search.replaceAll("+", "%2B");
-                Search = srchEdit;
 
                 srchEdit = Search.replaceAll("=", "%3D");
-                Search = srchEdit;
-                //Error
-                srchEdit = Search.replaceAll("{", "%7B");
                 Search = srchEdit;
 
                 srchEdit = Search.replaceAll("}", "%29");
@@ -117,9 +105,6 @@ public class MangaSearchTab extends AppCompatActivity{
 
                 srchEdit = Search.replaceAll("]", "%5D");
                 Search = srchEdit;
-                //HALP
-                srchEdit = Search.replaceAll("\", "%5C");
-                        Search = srchEdit;
 
                 srchEdit = Search.replaceAll("|", "%7C");
                 Search = srchEdit;
@@ -131,9 +116,6 @@ public class MangaSearchTab extends AppCompatActivity{
                 Search = srchEdit;
 
                 srchEdit = Search.replaceAll("/", "%2F");
-                Search = srchEdit;
-
-                srchEdit = Search.replaceAll("?", "%3F");
                 Search = srchEdit;
 
                 srchEdit = Search.replaceAll("`", "%60");
