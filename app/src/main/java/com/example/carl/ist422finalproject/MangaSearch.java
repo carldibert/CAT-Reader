@@ -11,7 +11,7 @@ import android.widget.EditText;
  * Created by Carl on 10/26/2017.
  */
 
-public class MangaMainPage extends AppCompatActivity{
+public class MangaSearch extends AppCompatActivity{
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -22,7 +22,7 @@ public class MangaMainPage extends AppCompatActivity{
         categoriesButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                startActivity(new Intent(MangaMainPage.this, MangaCategoryViewer.class));
+                startActivity(new Intent(MangaSearch.this, MangaCategoriesList.class));
             }
         });
 

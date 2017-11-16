@@ -19,13 +19,13 @@ import java.util.ArrayList;
  * Created by carl on 10/19/17.
  */
 
-public class MangaCategoriesSearchTab extends ListActivity {
+public class MangaList extends ListActivity {
     String websiteURL = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.results);
+        setContentView(R.layout.manga_list);
         websiteURL = getIntent().getStringExtra("WebsiteURL");
 
         new MangaCategoryResults().execute();
@@ -41,7 +41,7 @@ public class MangaCategoriesSearchTab extends ListActivity {
         String websiteURL = getWebsiteURL(titleExtension);
 
         //send to new page with the string categoryExtension as the websiteURL
-        Intent intent = new Intent(MangaCategoriesSearchTab.this, Manga.class);
+        Intent intent = new Intent(MangaList.this, MangaResults.class);
         intent.putExtra("WebsiteURL",  websiteURL);
         startActivity(intent);
     }

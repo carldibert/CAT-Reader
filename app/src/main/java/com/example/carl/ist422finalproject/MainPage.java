@@ -6,18 +6,18 @@ import android.view.View;
 import android.widget.Button;
 import android.content.Intent;
 
-public class MainActivity extends AppCompatActivity {
+public class MainPage extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.main_page);
 
         Button sendToMainScreen = (Button) findViewById(R.id.sendToSearchResult);
         sendToMainScreen.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                startActivity(new Intent(MainActivity.this, MangaCategoriesSearchTab.class));
+                startActivity(new Intent(MainPage.this, MangaList.class));
             }
         });
 
@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
         mangaButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                startActivity(new Intent(MainActivity.this, MangaMainPage.class));
+                startActivity(new Intent(MainPage.this, MangaSearch.class));
             }
         });
     }

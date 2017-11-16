@@ -7,12 +7,12 @@ import android.support.v7.app.AppCompatActivity;
  * Created by carl on 11/10/17.
  */
 
-public class Manga extends AppCompatActivity {
+public class MangaResults extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.manga);
+        setContentView(R.layout.manga_result);
 
     }
 }

@@ -4,7 +4,6 @@ import android.app.ListActivity;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
@@ -21,13 +20,13 @@ import static java.lang.String.valueOf;
  * Created by Carl on 10/26/2017.
  */
 
-public class MangaCategoryViewer extends ListActivity {
+public class MangaCategoriesList extends ListActivity {
     ArrayList<String> totalMangos = new ArrayList<String>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.manga_categories);
+        setContentView(R.layout.manga_categories_list);
 
         new MangaReaderCategories().execute();
     }
@@ -40,7 +39,7 @@ public class MangaCategoryViewer extends ListActivity {
         String categoryExtension = getCategoryExtension(position);
 
         //send to new page with the string categoryExtension as the websiteURL
-        Intent intent = new Intent(MangaCategoryViewer.this, MangaCategoriesSearchTab.class);
+        Intent intent = new Intent(MangaCategoriesList.this, MangaList.class);
         intent.putExtra("WebsiteURL",  categoryExtension);
         startActivity(intent);
     }
