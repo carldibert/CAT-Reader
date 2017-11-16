@@ -108,7 +108,7 @@ public class MangaMainPage extends AppCompatActivity{
         //get information from search box, do Carl thing, Hope it works.
 
         Button mostPopularButton = (Button) findViewById(R.id.mostPopularButton);
-        //insert onclick ACtivity
+        //insert onclick Activity
 
         Button newestUpdatesButton = (Button) findViewById(R.id.newestUpdatesButton);
         //insert onclick Activity
