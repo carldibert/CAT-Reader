@@ -82,6 +82,8 @@ public class MangaSearch extends AppCompatActivity{
                 srchEdit = Search.replaceAll("`", "%60");
                 Search = srchEdit;
 
+                //send to MangaList.java with website search
+
             }
         });
 
