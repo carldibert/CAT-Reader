@@ -32,6 +32,7 @@ public class MangaSearch extends AppCompatActivity{
             public void onClick(View view) {
                 EditText searchbox = (EditText)findViewById(R.id.searchBox);
                 String Search = searchbox.getText().toString();
+                MangaList list = new MangaList();
 
                 String srchEdit = Search.replaceAll(",", "%2c");
                 Search = srchEdit;
@@ -53,7 +54,6 @@ public class MangaSearch extends AppCompatActivity{
 
                 srchEdit = Search.replaceAll("@", "%40");
                 Search = srchEdit;
-
 
                 srchEdit = Search.replaceAll("!", "%21");
                 Search = srchEdit;
@@ -90,16 +90,36 @@ public class MangaSearch extends AppCompatActivity{
         //get information from search box, do Carl thing, Hope it works.
 
         Button mostPopularButton = (Button) findViewById(R.id.mostPopularButton);
-        //insert onclick ACtivity
+        mostPopularButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //Ask Carl The Code To Have JSoup Look Go To Website
+            }
+        });
 
         Button newestUpdatesButton = (Button) findViewById(R.id.newestUpdatesButton);
-        //insert onclick Activity
+        newestUpdatesButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //Ask Carl The Code To Have JSoup Look Go To Website
+            }
+        });
 
-        Button favortiesBtn = (Button) findViewById(R.id.favortiesBtn);
-        //inset onclick Activity
+        Button favoritesBtn = (Button) findViewById(R.id.favortiesBtn);
+        favoritesBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //Create Favorites Java
+            }
+        });
 
         Button bookmarksBtn = (Button) findViewById(R.id.bookmarksBtn);
-        //inset onclick activity
+        bookmarksBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // create bookmarks Java
+            }
+        });
     }
 
 }

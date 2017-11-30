@@ -13,13 +13,14 @@ public class MainPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_page);
 
-        //Button sendToMainScreen = (Button) findViewById(R.id.sendToSearchResult);
-        //sendToMainScreen.setOnClickListener(new View.OnClickListener(){
-        //    @Override
-        //    public void onClick(View v){
-        //        startActivity(new Intent(MainPage.this, MangaList.class));
-        //    }
-        //});
+        Button comicButton = (Button) findViewById(R.id.comicButton);
+        comicButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                startActivity(new Intent(MainPage.this, MangaSearch.class));
+                //When we Get Comics Working, Get This Working ^^
+            }
+        });
 
         Button mangaButton = (Button) findViewById(R.id.mangaButton);
         mangaButton.setOnClickListener(new View.OnClickListener(){

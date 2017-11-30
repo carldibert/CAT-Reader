@@ -52,6 +52,14 @@ public class MangaList extends ListActivity {
         return websiteURL;
     }
 
+    //Intakes Search Information and Sends It Through the Website
+    private String SearchResults (String n){
+        //get Search Results and Send it here
+        String SearchResults = "";
+        return SearchResults;
+    }
+
+
     //changes the title for a form that is able to be read by the website
     private String getTitleExtension(String n){
         String title = n;
