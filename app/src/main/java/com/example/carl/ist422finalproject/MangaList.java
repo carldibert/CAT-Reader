@@ -26,8 +26,8 @@ public class MangaList extends ListActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.manga_list);
-        websiteURL = getIntent().getStringExtra("WebsiteURL");
 
+        websiteURL = getIntent().getStringExtra("WebsiteURL");
         new MangaCategoryResults().execute();
     }
 
