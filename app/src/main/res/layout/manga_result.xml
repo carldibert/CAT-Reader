@@ -13,8 +13,8 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="3dp"
         android:layout_marginStart="12dp"
-        app:layout_constraintBottom_toTopOf="@+id/listView"
-        app:layout_constraintStart_toStartOf="@+id/listView"
+        app:layout_constraintBottom_toTopOf="@+id/chaptersListView"
+        app:layout_constraintStart_toStartOf="@+id/chaptersListView"
         app:srcCompat="@drawable/reading"
         tools:ignore="ContentDescription,MissingConstraints" />
 
@@ -42,7 +42,7 @@
         tools:ignore="HardcodedText,MissingConstraints" />
 
     <ListView
-        android:id="@+id/listView"
+        android:id="@+id/chaptersListView"
         android:layout_width="0dp"
 
         android:layout_height="478dp"

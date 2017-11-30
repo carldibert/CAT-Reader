@@ -121,7 +121,7 @@ public class MangaList extends ListActivity {
 
 
             String[] titlesArray = titles.toArray(new String[titles.size()]);
-            ArrayAdapter<String> adapter = new ArrayAdapter<String>(getListView().getContext(),
+            ArrayAdapter<String> adapter = new ArrayAdapter<>(getListView().getContext(),
                     android.R.layout.simple_list_item_1, titlesArray);
             getListView().setAdapter(adapter);
         }
