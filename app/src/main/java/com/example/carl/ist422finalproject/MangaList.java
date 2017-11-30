@@ -82,7 +82,7 @@ public class MangaList extends ListActivity {
     //populates the listview with all of the titles
     private class MangaCategoryResults extends AsyncTask<Void, Void, Void> {
 
-        ArrayList<String> titles = new ArrayList<String>();
+        ArrayList<String> titles = new ArrayList<>();
 
         @Override
         protected Void doInBackground(Void... params) {
