@@ -26,6 +26,7 @@ import org.jsoup.select.Elements;
 public class MangaResults extends AppCompatActivity {
 
     String websiteURL = "";
+    String maxChapters;
 
 
     @Override
@@ -50,9 +51,9 @@ public class MangaResults extends AppCompatActivity {
         protected Void doInBackground(Void... params) {
 
             try {
-                Document doc = Jsoup.connect(websiteURL.toLowerCase())
-                        .followRedirects(false)
-                        .get();
+                    Document doc = Jsoup.connect(websiteURL.toLowerCase())
+                            .followRedirects(false)
+                            .get();
 
                 //Initialize the elements we are pulling from the site
                 Elements mangaName = doc.getElementsByClass("aname");
@@ -117,20 +118,15 @@ public class MangaResults extends AppCompatActivity {
             authorText.setText(author);
 
             ListView chapters = (ListView) findViewById(R.id.chaptersListView);
-
             ArrayList<String> chaptersArrayList = new ArrayList<>();
             for(int i=0; i<chapterList.size(); i++){
                 int sampleNumber = i+1;
                 String chapter = sampleNumber + chapterList.get(i) + "\t\t" + chapterDateList.get(0);
                 chaptersArrayList.add(chapter);
             }
-            String[] chaptersArray = chaptersArrayList.toArray(new String[chaptersArrayList.size()]);
             chapters.setAdapter(new ArrayAdapter<String>(chapters.getContext(), android.R.layout.simple_list_item_1 , chaptersArrayList));
 
-
-
-            Log.e("chapter name", chapterList.get(0));
-            Log.e("chapter date", chapterDateList.get(0));
+            maxChapters = String.valueOf(chaptersArrayList.size());
         }
     }
 }
