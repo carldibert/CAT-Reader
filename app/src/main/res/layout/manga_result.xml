@@ -20,8 +20,8 @@
 
     <TextView
         android:id="@+id/authorTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="158dp"
+        android:layout_height="74dp"
         android:layout_marginTop="19dp"
         android:text="Author"
         android:textSize="30sp"
@@ -34,10 +34,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="82dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="36dp"
         android:text="Title"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/titleImage"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="HardcodedText,MissingConstraints" />
 
