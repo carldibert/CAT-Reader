@@ -35,7 +35,6 @@ String websiteURL = "";
 
         ArrayList<String> images = new ArrayList<>();
 
-
         @Override
         protected Void doInBackground(Void... params) {
 
