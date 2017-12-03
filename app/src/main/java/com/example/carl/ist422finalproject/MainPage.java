@@ -6,6 +6,8 @@ import android.view.View;
 import android.widget.Button;
 import android.content.Intent;
 
+import com.zSettings;
+
 public class MainPage extends AppCompatActivity {
 
     @Override
@@ -27,6 +29,15 @@ public class MainPage extends AppCompatActivity {
             @Override
             public void onClick(View v){
                 startActivity(new Intent(MainPage.this, MangaSearch.class));
+
+            }
+        });
+        Button settingsButton = (Button) findViewById(R.id.settingsButton);
+        settingsButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                startActivity(new Intent(MainPage.this, zSettings.class));
+                //When we Get Comics Working, Get This Working ^^
             }
         });
     }
