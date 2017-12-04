@@ -1,6 +1,7 @@
 package com.example.carl.ist422finalproject;
 
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -15,6 +16,7 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
+import java.net.URL;
 import java.util.ArrayList;
 
 
@@ -38,23 +40,23 @@ public class MangaResults extends AppCompatActivity {
         new MangaReaderCategories().execute();
     }
 
-    private class MangaReaderCategories extends AsyncTask<Void, Void, Bitmap> {
+    private class MangaReaderCategories extends AsyncTask<Void, Void, Void> {
 
         String title = "";
         String author = "";
         String image = "";
-        ImageView imageView;
         ArrayList<String> chapterList = new ArrayList<>();
         ArrayList<String> chapterDateList = new ArrayList<>();
+        ImageView manga_img = (ImageView) findViewById(R.id.Manga_Img);
 
         @Override
-        protected Bitmap doInBackground(Void... params) {
-
+        protected Void doInBackground(Void... params) {
+            URL url = null;
 
             try {
-                    Document doc = Jsoup.connect(websiteURL.toLowerCase())
-                            .followRedirects(false)
-                            .get();
+                Document doc = Jsoup.connect(websiteURL.toLowerCase())
+                        .followRedirects(false)
+                        .get();
 
                 //Initialize the elements we are pulling from the site
                 Elements mangaName = doc.getElementsByClass("aname");
@@ -77,20 +79,19 @@ public class MangaResults extends AppCompatActivity {
                 String[] imageSplit2 = imageSplit[2].split("=");
                 char[] imageChar = imageSplit2[1].toCharArray();
                 ArrayList<Character> imageCharacters = new ArrayList<>();
-                for(int i=1; i<imageChar.length-5; i++) {
+                for (int i = 1; i < imageChar.length - 5; i++) {
                     imageCharacters.add(imageChar[i]);
                 }
                 StringBuilder builder = new StringBuilder(imageCharacters.size());
-                for(int i=0; i<imageCharacters.size(); i++) {
+                for (int i = 0; i < imageCharacters.size(); i++) {
                     builder.append(imageCharacters.get(i));
                 }
                 image = builder.toString();
 
 
-
                 //gets the list off all of the chapters titles and their dates
                 String[] mangaChapters1 = mangaChapters.toString().split("<td>");
-                for(int i=1; i<mangaChapters1.length; i = i+2) {
+                for (int i = 1; i < mangaChapters1.length; i = i + 2) {
                     String[] mangaChapterTitle = mangaChapters1[i].split(">");
                     String[] mangaChapterTitle1 = mangaChapterTitle[4].split("<");
 
@@ -98,23 +99,24 @@ public class MangaResults extends AppCompatActivity {
 
                     chapterList.add(mangaChapterTitle1[0]);
                     chapterDateList.add(mangaChapterDate[0]);
-
                 }
 
+                url= new URL(image);
+                Bitmap bmp = BitmapFactory.decodeStream(url.openConnection().getInputStream());
+                manga_img.setImageBitmap(bmp);
             } catch (Exception e) {
                 e.printStackTrace();
             }
 
+
             return null;
         }
 
-        @Override
-        protected void onPostExecute(Bitmap result) {
-            super.onPostExecute(result);
-            imageView.setImageBitmap(result);
+            @Override
+        protected void onPostExecute(Void avoid) {
+            super.onPostExecute(avoid);
 
             Log.e("title", title);
-
 
             TextView titleText = (TextView) findViewById(R.id.titleTextView);
             titleText.setText(title);
@@ -132,6 +134,7 @@ public class MangaResults extends AppCompatActivity {
             chapters.setAdapter(new ArrayAdapter<String>(chapters.getContext(), android.R.layout.simple_list_item_1 , chaptersArrayList));
 
             maxChapters = String.valueOf(chaptersArrayList.size());
+
         }
     }
 }

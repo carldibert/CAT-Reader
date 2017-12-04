@@ -9,25 +9,23 @@
 
     <TextView
         android:id="@+id/authorTextView"
-        android:layout_width="0dp"
+        android:layout_width="123dp"
         android:layout_height="134dp"
         android:layout_marginBottom="33dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginStart="20dp"
         android:text="Author"
         android:textSize="15sp"
         app:layout_constraintBottom_toTopOf="@+id/chaptersListView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/Manga_Img"
         app:layout_constraintTop_toBottomOf="@+id/titleTextView"
         tools:ignore="HardcodedText,MissingConstraints" />
 
     <TextView
         android:id="@+id/titleTextView"
-        android:layout_width="0dp"
+        android:layout_width="114dp"
         android:layout_height="71dp"
-        android:layout_marginEnd="40dp"
+        android:layout_marginEnd="53dp"
         android:layout_marginTop="24dp"
         android:text="Title"
         android:textSize="15sp"
@@ -39,26 +37,25 @@
     <ListView
         android:id="@+id/chaptersListView"
         android:layout_width="323dp"
-        android:layout_height="328dp"
+        android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/authorTextView"
+        app:layout_constraintTop_toBottomOf="@+id/Manga_Img"
         tools:ignore="MissingConstraints" />
 
     <ImageView
         android:id="@+id/Manga_Img"
         android:layout_width="0dp"
-        android:layout_height="201dp"
-        android:layout_marginEnd="20dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="37dp"
+        android:layout_marginEnd="14dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="26dp"
-        app:layout_constraintBottom_toTopOf="@+id/authorTextView"
+        android:layout_marginTop="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/chaptersListView"
         app:layout_constraintEnd_toStartOf="@+id/titleTextView"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-        app:layout_constraintVertical_chainStyle="spread"
         app:srcCompat="@drawable/reading" />
 
 </android.support.constraint.ConstraintLayout>
