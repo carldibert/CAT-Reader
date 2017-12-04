@@ -16,6 +16,8 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
+import java.io.IOException;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 
@@ -38,6 +40,7 @@ public class MangaResults extends AppCompatActivity {
         websiteURL = getIntent().getStringExtra("WebsiteURL");
 
         new MangaReaderCategories().execute();
+
     }
 
     private class MangaReaderCategories extends AsyncTask<Void, Void, Void> {
@@ -48,6 +51,7 @@ public class MangaResults extends AppCompatActivity {
         ArrayList<String> chapterList = new ArrayList<>();
         ArrayList<String> chapterDateList = new ArrayList<>();
         ImageView manga_img = (ImageView) findViewById(R.id.Manga_Img);
+
 
         @Override
         protected Void doInBackground(Void... params) {
@@ -88,7 +92,6 @@ public class MangaResults extends AppCompatActivity {
                 }
                 image = builder.toString();
 
-
                 //gets the list off all of the chapters titles and their dates
                 String[] mangaChapters1 = mangaChapters.toString().split("<td>");
                 for (int i = 1; i < mangaChapters1.length; i = i + 2) {
@@ -101,14 +104,29 @@ public class MangaResults extends AppCompatActivity {
                     chapterDateList.add(mangaChapterDate[0]);
                 }
 
-                url= new URL(image);
-                Bitmap bmp = BitmapFactory.decodeStream(url.openConnection().getInputStream());
-                manga_img.setImageBitmap(bmp);
+                getImage(image);
             } catch (Exception e) {
                 e.printStackTrace();
             }
 
 
+            return null;
+        }
+
+        public Void getImage(String image) {
+            try {
+                URL url = new URL(image);
+                Bitmap bmp = null;
+                try {
+                    bmp = BitmapFactory.decodeStream(url.openConnection().getInputStream());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                manga_img.setImageBitmap(bmp);
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+            }
+            onPostExecute(null);
             return null;
         }
 
