@@ -8,8 +8,6 @@ import android.widget.Button;
 import android.content.Intent;
 import android.widget.Toast;
 
-import com.zSettings;
-
 public class MainPage extends AppCompatActivity {
 
     @Override

@@ -1,4 +1,4 @@
-package com;
+package com.example.carl.ist422finalproject;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
