@@ -5,52 +5,60 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background"
-    tools:layout_editor_absoluteY="81dp">
-
-    <ImageButton
-        android:id="@+id/titleImage"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="3dp"
-        android:layout_marginStart="12dp"
-        app:layout_constraintBottom_toTopOf="@+id/chaptersListView"
-        app:layout_constraintStart_toStartOf="@+id/chaptersListView"
-        app:srcCompat="@drawable/reading"
-        tools:ignore="ContentDescription,MissingConstraints" />
+    tools:layout_editor_absoluteY="25dp">
 
     <TextView
         android:id="@+id/authorTextView"
-        android:layout_width="158dp"
-        android:layout_height="74dp"
-        android:layout_marginTop="19dp"
+        android:layout_width="0dp"
+        android:layout_height="134dp"
+        android:layout_marginBottom="33dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="20dp"
         android:text="Author"
-        android:textSize="30sp"
-        app:layout_constraintStart_toStartOf="@+id/titleTextView"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toTopOf="@+id/chaptersListView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/Manga_Img"
         app:layout_constraintTop_toBottomOf="@+id/titleTextView"
         tools:ignore="HardcodedText,MissingConstraints" />
 
     <TextView
         android:id="@+id/titleTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="82dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="36dp"
+        android:layout_width="0dp"
+        android:layout_height="71dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginTop="24dp"
         android:text="Title"
-        android:textSize="30sp"
+        android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/titleImage"
+        app:layout_constraintStart_toEndOf="@+id/Manga_Img"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="HardcodedText,MissingConstraints" />
 
     <ListView
         android:id="@+id/chaptersListView"
-        android:layout_width="0dp"
-
-        android:layout_height="478dp"
-        android:layout_marginTop="30dp"
+        android:layout_width="323dp"
+        android:layout_height="328dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/authorTextView"
         tools:ignore="MissingConstraints" />
+
+    <ImageView
+        android:id="@+id/Manga_Img"
+        android:layout_width="0dp"
+        android:layout_height="201dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="26dp"
+        app:layout_constraintBottom_toTopOf="@+id/authorTextView"
+        app:layout_constraintEnd_toStartOf="@+id/titleTextView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintVertical_chainStyle="spread"
+        app:srcCompat="@drawable/reading" />
+
 </android.support.constraint.ConstraintLayout>

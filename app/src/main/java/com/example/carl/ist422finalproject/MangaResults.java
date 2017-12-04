@@ -1,22 +1,21 @@
 package com.example.carl.ist422finalproject;
 
+import android.graphics.Bitmap;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
-import android.widget.SimpleAdapter;
 import android.widget.TextView;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
+
+import java.util.ArrayList;
 
 
 /**
@@ -39,16 +38,18 @@ public class MangaResults extends AppCompatActivity {
         new MangaReaderCategories().execute();
     }
 
-    private class MangaReaderCategories extends AsyncTask<Void, Void, Void> {
+    private class MangaReaderCategories extends AsyncTask<Void, Void, Bitmap> {
 
         String title = "";
         String author = "";
         String image = "";
+        ImageView imageView;
         ArrayList<String> chapterList = new ArrayList<>();
         ArrayList<String> chapterDateList = new ArrayList<>();
 
         @Override
-        protected Void doInBackground(Void... params) {
+        protected Bitmap doInBackground(Void... params) {
+
 
             try {
                     Document doc = Jsoup.connect(websiteURL.toLowerCase())
@@ -85,18 +86,20 @@ public class MangaResults extends AppCompatActivity {
                 }
                 image = builder.toString();
 
+
+
                 //gets the list off all of the chapters titles and their dates
                 String[] mangaChapters1 = mangaChapters.toString().split("<td>");
                 for(int i=1; i<mangaChapters1.length; i = i+2) {
                     String[] mangaChapterTitle = mangaChapters1[i].split(">");
                     String[] mangaChapterTitle1 = mangaChapterTitle[4].split("<");
 
-                    String[] mangaChapterDate = mangaChapters1[i+1].split("<");
+                    String[] mangaChapterDate = mangaChapters1[i + 1].split("<");
 
                     chapterList.add(mangaChapterTitle1[0]);
                     chapterDateList.add(mangaChapterDate[0]);
-                }
 
+                }
 
             } catch (Exception e) {
                 e.printStackTrace();
@@ -106,10 +109,12 @@ public class MangaResults extends AppCompatActivity {
         }
 
         @Override
-        protected void onPostExecute(Void aVoid) {
-            super.onPostExecute(aVoid);
+        protected void onPostExecute(Bitmap result) {
+            super.onPostExecute(result);
+            imageView.setImageBitmap(result);
 
             Log.e("title", title);
+
 
             TextView titleText = (TextView) findViewById(R.id.titleTextView);
             titleText.setText(title);
