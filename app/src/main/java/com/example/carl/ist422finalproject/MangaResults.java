@@ -1,11 +1,14 @@
 package com.example.carl.ist422finalproject;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -51,7 +54,7 @@ public class MangaResults extends AppCompatActivity {
         ArrayList<String> chapterList = new ArrayList<>();
         ArrayList<String> chapterDateList = new ArrayList<>();
         ImageView manga_img = (ImageView) findViewById(R.id.Manga_Img);
-
+        ListView chptlist = (ListView) findViewById(R.id.chaptersListView);
 
         @Override
         protected Void doInBackground(Void... params) {
@@ -129,7 +132,6 @@ public class MangaResults extends AppCompatActivity {
             onPostExecute(null);
             return null;
         }
-
             @Override
         protected void onPostExecute(Void avoid) {
             super.onPostExecute(avoid);
@@ -143,6 +145,13 @@ public class MangaResults extends AppCompatActivity {
             authorText.setText(author);
 
             ListView chapters = (ListView) findViewById(R.id.chaptersListView);
+            chapters.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                    startActivity(new Intent(MangaResults.this, ImageViewer.class));
+                }
+
+            });
             ArrayList<String> chaptersArrayList = new ArrayList<>();
             for(int i=0; i<chapterList.size(); i++){
                 int sampleNumber = i+1;
