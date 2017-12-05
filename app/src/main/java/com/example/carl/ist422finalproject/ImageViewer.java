@@ -83,6 +83,7 @@ ImageView manga_img = (ImageView) findViewById(R.id.Manga_Img);
                         String[] image4 = image3[1].split(".jpg");
                         String sam = image4[0] + ".jpg";
                         images.add(sam);
+
                     } catch (Exception e2) {
                         e2.printStackTrace();
                     }
