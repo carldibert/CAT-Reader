@@ -9,6 +9,7 @@ import android.widget.EditText;
 
 /**
  * Created by aschn on 12/3/2017.
+ * Editing things to be able to push changes
  */
 
 public class zSettings extends AppCompatActivity {
