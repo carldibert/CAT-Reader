@@ -1,8 +1,7 @@
 package com.example.carl.ist422finalproject;
 
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -19,8 +18,6 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-import java.io.IOException;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 
@@ -105,9 +102,10 @@ public class MangaResults extends AppCompatActivity {
 
                     chapterList.add(mangaChapterTitle1[0]);
                     chapterDateList.add(mangaChapterDate[0]);
-                }
 
-                getImage(image);
+
+                }
+//                getImage(image);
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -116,22 +114,22 @@ public class MangaResults extends AppCompatActivity {
             return null;
         }
 
-        public Void getImage(String image) {
-            try {
-                URL url = new URL(image);
-                Bitmap bmp = null;
-                try {
-                    bmp = BitmapFactory.decodeStream(url.openConnection().getInputStream());
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-                manga_img.setImageBitmap(bmp);
-            } catch (MalformedURLException e) {
-                e.printStackTrace();
-            }
-            onPostExecute(null);
-            return null;
-        }
+//        public Void getImage(String image) {
+//            try {
+//                URL url = new URL(image);
+//                Bitmap bmp = null;
+//                try {
+//                    bmp = BitmapFactory.decodeStream(url.openConnection().getInputStream());
+//                } catch (IOException e) {
+//                    e.printStackTrace();
+//                }
+//                manga_img.setImageBitmap(bmp);
+//            } catch (MalformedURLException e) {
+//                e.printStackTrace();
+//            }
+//            onPostExecute(null);
+//            return null;
+//        }
             @Override
         protected void onPostExecute(Void avoid) {
             super.onPostExecute(avoid);
@@ -152,6 +150,9 @@ public class MangaResults extends AppCompatActivity {
                 }
 
             });
+
+                BitmapDrawable ob = new BitmapDrawable(getResources(), image);
+                manga_img.setBackgroundDrawable(ob);
             ArrayList<String> chaptersArrayList = new ArrayList<>();
             for(int i=0; i<chapterList.size(); i++){
                 int sampleNumber = i+1;
