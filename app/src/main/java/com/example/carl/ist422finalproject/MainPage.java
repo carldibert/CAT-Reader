@@ -26,7 +26,7 @@ public class MainPage extends AppCompatActivity {
         comicButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                startActivity(new Intent(MainPage.this, MangaSearch.class));
+                startActivity(new Intent(MainPage.this, development.class));
                 //When we Get Comics Working, Get This Working ^^
             }
         });
