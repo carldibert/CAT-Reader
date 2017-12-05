@@ -3,6 +3,7 @@ package com.example.carl.ist422finalproject;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -105,8 +106,9 @@ public class MangaResults extends AppCompatActivity {
 
                     chapterList.add(mangaChapterTitle1[0]);
                     chapterDateList.add(mangaChapterDate[0]);
-                }
 
+
+                }
                 getImage(image);
             } catch (Exception e) {
                 e.printStackTrace();
@@ -152,6 +154,9 @@ public class MangaResults extends AppCompatActivity {
                 }
 
             });
+
+                BitmapDrawable ob = new BitmapDrawable(getResources(), image);
+                manga_img.setBackgroundDrawable(ob);
             ArrayList<String> chaptersArrayList = new ArrayList<>();
             for(int i=0; i<chapterList.size(); i++){
                 int sampleNumber = i+1;
