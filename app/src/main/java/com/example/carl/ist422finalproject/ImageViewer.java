@@ -6,6 +6,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.ImageSwitcher;
+import android.widget.ImageView;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -20,6 +21,7 @@ import java.util.ArrayList;
 public class ImageViewer extends ListActivity {
 String websiteURL = "";
 ImageSwitcher manga_pg = (ImageSwitcher) findViewById(R.id.Manga_pg);
+ImageView manga_img = (ImageView) findViewById(R.id.Manga_Img);
     @Override
         protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -81,8 +83,6 @@ ImageSwitcher manga_pg = (ImageSwitcher) findViewById(R.id.Manga_pg);
                         String[] image4 = image3[1].split(".jpg");
                         String sam = image4[0] + ".jpg";
                         images.add(sam);
-
-                        images.toString();
                     } catch (Exception e2) {
                         e2.printStackTrace();
                     }
