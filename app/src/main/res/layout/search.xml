@@ -29,25 +29,6 @@
             tools:layout_editor_absoluteX="8dp"
             tools:layout_editor_absoluteY="0dp">
 
-            <Button
-                android:id="@+id/favortiesBtn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Favorites"
-                android:textSize="12sp"
-                tools:ignore="ButtonStyle,HardcodedText" />
-
-            <Button
-                android:id="@+id/bookmarksBtn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Bookmarks"
-                android:textAlignment="center"
-                android:textSize="12sp"
-                tools:ignore="ButtonStyle,HardcodedText" />
-
         </LinearLayout>
     </LinearLayout>
 
