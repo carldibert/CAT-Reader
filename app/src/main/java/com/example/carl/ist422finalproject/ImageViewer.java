@@ -1,14 +1,15 @@
 package com.example.carl.ist422finalproject;
 
 import android.app.ListActivity;
+import android.net.sip.SipSession;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
+import android.widget.ImageSwitcher;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
-import org.jsoup.select.Elements;
 
 import java.util.ArrayList;
 
@@ -18,14 +19,15 @@ import java.util.ArrayList;
 
 public class ImageViewer extends ListActivity {
 String websiteURL = "";
+ImageSwitcher manga_pg = (ImageSwitcher) findViewById(R.id.Manga_pg);
     @Override
         protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.manga_list);
+        setContentView(R.layout.picture_viewer);
         websiteURL = getIntent().getStringExtra("WebsiteURL");
+
         new ImageResults().execute();
     }
-
 
     private String getWebsiteURL (String n){
         String websiteURL = "http://www.mangareader.net/" + n;
@@ -35,8 +37,8 @@ String websiteURL = "";
     private class ImageResults extends AsyncTask<Void, Void, Void> {
 
         ArrayList<String> images = new ArrayList<>();
+        private SipSession.Listener mListener;
 
-        @Override
         protected Void doInBackground(Void... params) {
 
             try {
@@ -79,6 +81,8 @@ String websiteURL = "";
                         String[] image4 = image3[1].split(".jpg");
                         String sam = image4[0] + ".jpg";
                         images.add(sam);
+
+                        images.toString();
                     } catch (Exception e2) {
                         e2.printStackTrace();
                     }
@@ -91,8 +95,8 @@ String websiteURL = "";
         }
 
         @Override
-        protected void onPostExecute(Void aVoid) {
-            super.onPostExecute(aVoid);
+        protected void onPostExecute(Void avoid) {
+            super.onPostExecute(avoid);
 
 
             String[] titlesArray = images.toArray(new String[images.size()]);

@@ -29,4 +29,5 @@ dependencies {
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:design:26+'
     compile files('libs/jsoup-1.10.3.jar')
+    compile files('libs/picasso-2.5.2.jar')
 }
