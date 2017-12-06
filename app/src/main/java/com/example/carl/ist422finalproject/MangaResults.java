@@ -1,27 +1,21 @@
 package com.example.carl.ist422finalproject;
 
-import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.drawable.BitmapDrawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import com.squareup.picasso.Picasso;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-import java.io.IOException;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 
@@ -44,8 +38,8 @@ public class MangaResults extends AppCompatActivity {
         websiteURL = getIntent().getStringExtra("WebsiteURL");
 
         new MangaReaderCategories().execute();
-
     }
+
 
     private class MangaReaderCategories extends AsyncTask<Void, Void, Void> {
 
@@ -60,7 +54,6 @@ public class MangaResults extends AppCompatActivity {
         @Override
         protected Void doInBackground(Void... params) {
             URL url = null;
-
             try {
                 Document doc = Jsoup.connect(websiteURL.toLowerCase())
                         .followRedirects(false)
@@ -106,10 +99,8 @@ public class MangaResults extends AppCompatActivity {
 
                     chapterList.add(mangaChapterTitle1[0]);
                     chapterDateList.add(mangaChapterDate[0]);
-
-
                 }
-                getImage(image);
+
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -118,26 +109,10 @@ public class MangaResults extends AppCompatActivity {
             return null;
         }
 
-        public Void getImage(String image) {
-            try {
-                URL url = new URL(image);
-                Bitmap bmp = null;
-                try {
-                    bmp = BitmapFactory.decodeStream(url.openConnection().getInputStream());
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-                manga_img.setImageBitmap(bmp);
-            } catch (MalformedURLException e) {
-                e.printStackTrace();
-            }
-            onPostExecute(null);
-            return null;
-        }
-            @Override
+  @Override
         protected void onPostExecute(Void avoid) {
             super.onPostExecute(avoid);
-
+      Picasso.with(getApplicationContext()).load(image).into(manga_img);
             Log.e("title", title);
 
             TextView titleText = (TextView) findViewById(R.id.titleTextView);
@@ -147,16 +122,7 @@ public class MangaResults extends AppCompatActivity {
             authorText.setText(author);
 
             ListView chapters = (ListView) findViewById(R.id.chaptersListView);
-            chapters.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                @Override
-                public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                    startActivity(new Intent(MangaResults.this, ImageViewer.class));
-                }
 
-            });
-
-                BitmapDrawable ob = new BitmapDrawable(getResources(), image);
-                manga_img.setBackgroundDrawable(ob);
             ArrayList<String> chaptersArrayList = new ArrayList<>();
             for(int i=0; i<chapterList.size(); i++){
                 int sampleNumber = i+1;
@@ -165,8 +131,7 @@ public class MangaResults extends AppCompatActivity {
             }
             chapters.setAdapter(new ArrayAdapter<String>(chapters.getContext(), android.R.layout.simple_list_item_1 , chaptersArrayList));
 
-            maxChapters = String.valueOf(chaptersArrayList.size());
+            maxChapters = String.valueOf(chaptersArrayList.size());}
 
         }
     }
-}

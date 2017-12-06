@@ -1,12 +1,12 @@
 package com.example.carl.ist422finalproject;
 
 import android.app.ListActivity;
-import android.net.sip.SipSession;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
-import android.widget.ImageSwitcher;
 import android.widget.ImageView;
+
+import com.squareup.picasso.Picasso;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -20,8 +20,7 @@ import java.util.ArrayList;
 
 public class ImageViewer extends ListActivity {
 String websiteURL = "";
-ImageSwitcher manga_pg = (ImageSwitcher) findViewById(R.id.Manga_pg);
-ImageView manga_img = (ImageView) findViewById(R.id.Manga_Img);
+ImageView manga_img = (ImageView) findViewById(R.id.manga_page_img);
     @Override
         protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,7 +38,7 @@ ImageView manga_img = (ImageView) findViewById(R.id.Manga_Img);
     private class ImageResults extends AsyncTask<Void, Void, Void> {
 
         ArrayList<String> images = new ArrayList<>();
-        private SipSession.Listener mListener;
+
 
         protected Void doInBackground(Void... params) {
 
@@ -84,6 +83,7 @@ ImageView manga_img = (ImageView) findViewById(R.id.Manga_Img);
                         String sam = image4[0] + ".jpg";
                         images.add(sam);
 
+
                     } catch (Exception e2) {
                         e2.printStackTrace();
                     }
@@ -98,8 +98,7 @@ ImageView manga_img = (ImageView) findViewById(R.id.Manga_Img);
         @Override
         protected void onPostExecute(Void avoid) {
             super.onPostExecute(avoid);
-
-
+            Picasso.with(getApplicationContext()).load(images.get(0)).into(manga_img);
             String[] titlesArray = images.toArray(new String[images.size()]);
             ArrayAdapter<String> adapter = new ArrayAdapter<String>(getListView().getContext(),
                     android.R.layout.simple_list_item_1, titlesArray);
