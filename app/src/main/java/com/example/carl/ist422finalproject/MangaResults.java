@@ -22,6 +22,8 @@ import org.jsoup.select.Elements;
 import java.net.URL;
 import java.util.ArrayList;
 
+import static java.lang.String.valueOf;
+
 
 /**
  * Created by carl on 11/10/17.
@@ -41,6 +43,18 @@ public class MangaResults extends AppCompatActivity {
         websiteURL = getIntent().getStringExtra("WebsiteURL");
 
         new MangaReaderCategories().execute();
+
+        ListView chapters = (ListView) findViewById(R.id.chaptersListView);
+        chapters.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Intent intent = new Intent(MangaResults.this, ImageViewer.class);
+                int sam = i+1;
+                String webURL = websiteURL.toLowerCase() + "/" + sam;
+                intent.putExtra("WebsiteURL", webURL);
+                startActivity(intent);
+            }
+        });
     }
 
 
@@ -124,15 +138,8 @@ public class MangaResults extends AppCompatActivity {
             TextView authorText = (TextView) findViewById(R.id.authorTextView);
             authorText.setText(author);
 
-            ListView chapters = (ListView) findViewById(R.id.chaptersListView);
-            chapters.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                @Override
-                public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                    Intent intent = new Intent(MangaResults.this, ImageViewer.class);
-                    startActivity(intent);
-                }
-            });
 
+            ListView chapters = (ListView) findViewById(R.id.chaptersListView);
 
             ArrayList<String> chaptersArrayList = new ArrayList<>();
             for(int i=0; i<chapterList.size(); i++){
@@ -142,7 +149,7 @@ public class MangaResults extends AppCompatActivity {
             }
             chapters.setAdapter(new ArrayAdapter<String>(chapters.getContext(), android.R.layout.simple_list_item_1 , chaptersArrayList));
 
-            maxChapters = String.valueOf(chaptersArrayList.size());}
+            maxChapters = valueOf(chaptersArrayList.size());}
 
         }
     }

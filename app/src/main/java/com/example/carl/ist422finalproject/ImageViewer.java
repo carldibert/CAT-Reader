@@ -20,7 +20,7 @@ import java.util.ArrayList;
 
 public class ImageViewer extends ListActivity {
 String websiteURL = "";
-ImageView manga_img = (ImageView) findViewById(R.id.manga_page_img);
+    ImageView manga_img = (ImageView) findViewById(R.id.manga_page_img);
     @Override
         protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
