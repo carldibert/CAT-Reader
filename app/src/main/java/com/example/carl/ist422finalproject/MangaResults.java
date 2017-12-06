@@ -1,9 +1,12 @@
 package com.example.carl.ist422finalproject;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -122,6 +125,14 @@ public class MangaResults extends AppCompatActivity {
             authorText.setText(author);
 
             ListView chapters = (ListView) findViewById(R.id.chaptersListView);
+            chapters.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                    Intent intent = new Intent(MangaResults.this, ImageViewer.class);
+                    startActivity(intent);
+                }
+            });
+
 
             ArrayList<String> chaptersArrayList = new ArrayList<>();
             for(int i=0; i<chapterList.size(); i++){
