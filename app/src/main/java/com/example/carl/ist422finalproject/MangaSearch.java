@@ -12,17 +12,17 @@ import android.widget.EditText;
  * Created by Carl on 10/26/2017.
  */
 
-public class MangaSearch extends AppCompatActivity{
+public class MangaSearch extends AppCompatActivity {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState){
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.search);
 
         Button categoriesButton = (Button) findViewById(R.id.categoriesButton);
-        categoriesButton.setOnClickListener(new View.OnClickListener(){
+        categoriesButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v){
+            public void onClick(View v) {
                 startActivity(new Intent(MangaSearch.this, MangaCategoriesList.class));
             }
         });
@@ -31,13 +31,13 @@ public class MangaSearch extends AppCompatActivity{
         searchButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                EditText searchbox = (EditText)findViewById(R.id.searchBox);
+                EditText searchbox = (EditText) findViewById(R.id.searchBox);
                 String Search = searchbox.getText().toString();
 
                 String searchURL = "http://www.mangareader.net/search/?w=" + Search + "&rd=0&status=0&order=0&genre=0000000000000000000000000000000000000&p=0";
 
                 Intent intent = new Intent(MangaSearch.this, MangaList.class);
-                intent.putExtra("WebsiteURL",  searchURL);
+                intent.putExtra("WebsiteURL", searchURL);
                 startActivity(intent);
             }
         });
@@ -49,7 +49,7 @@ public class MangaSearch extends AppCompatActivity{
                 String mostPopularURL = "http://www.mangareader.net/popular";
 
                 Intent intent = new Intent(MangaSearch.this, MangaList.class);
-                intent.putExtra("WebsiteURL",  mostPopularURL);
+                intent.putExtra("WebsiteURL", mostPopularURL);
                 startActivity(intent);
             }
         });
@@ -62,21 +62,5 @@ public class MangaSearch extends AppCompatActivity{
             }
         });
 
-        Button favoritesBtn = (Button) findViewById(R.id.favortiesBtn);
-        favoritesBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //Create Favorites Java
-            }
-        });
-
-        Button bookmarksBtn = (Button) findViewById(R.id.bookmarksBtn);
-        bookmarksBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                // create bookmarks Java
-            }
-        });
     }
-
 }
