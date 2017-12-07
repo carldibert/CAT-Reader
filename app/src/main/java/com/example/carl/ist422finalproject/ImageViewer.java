@@ -93,8 +93,7 @@ String websiteURL = "";
                             builder.append(imageCharacters.get(i));
                         }
                         pimage = builder.toString();
-                        Picasso.with(getApplicationContext()).load(pimage).into(mpi);
-
+                        Picasso.with(getApplicationContext()).load("http://i999.mangareader.net/nanatsu-no-taizai/245/nanatsu-no-taizai-10103275.jpg").into(mpi);
                     } catch (Exception e2) {
                         e2.printStackTrace();
                     }
@@ -103,12 +102,14 @@ String websiteURL = "";
             } catch (Exception e) {
                 e.printStackTrace();
             }
+
             return null;
        }
 
         @Override
         protected void onPostExecute(Void avoid) {
             super.onPostExecute(avoid);
+
             String[] titlesArray = images.toArray(new String[images.size()]);
 //            ArrayAdapter<String> adapter = new ArrayAdapter<String>(getListView().getContext(),
 //                    android.R.layout.simple_list_item_1, titlesArray);
