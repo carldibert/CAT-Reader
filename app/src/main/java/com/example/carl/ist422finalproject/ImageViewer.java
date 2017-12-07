@@ -2,8 +2,11 @@ package com.example.carl.ist422finalproject;
 
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 
@@ -28,10 +31,6 @@ String websiteURL = "";
 
     }
 
-    private String getWebsiteURL (String n){
-        String websiteURL = "http://www.mangareader.net/" + n;
-        return websiteURL;
-    }
 
     private class ImageResults extends AsyncTask<Void, Void, Void> {
 
@@ -39,10 +38,12 @@ String websiteURL = "";
         ImageView mpi = (ImageView) findViewById(R.id.Manga_Page_Img);
         String pimage = "";
         String sam;
+        String Table = "http://i999.mangareader.net/nanatsu-no-taizai/245/nanatsu-no-taizai-10103275.jpg";
+        int f = 0;
         protected Void doInBackground(Void... params) {
 
             try {
-                Document doc = Jsoup.connect(websiteURL)
+                Document doc = Jsoup.connect(websiteURL.toLowerCase())
                         .followRedirects(false)
                         .get();
 
@@ -51,6 +52,7 @@ String websiteURL = "";
                 String[] pageSplit2 = pageSplit1[4].split("> of ");
                 String[] pageSplit3 = pageSplit2[1].split("<");
                 String totalPagesPerChapter = pageSplit3[0];
+
 
                 ArrayList<String> totalPageURLPerChapter = new ArrayList<String>();
                 StringBuilder same = new StringBuilder(3);
@@ -93,7 +95,9 @@ String websiteURL = "";
                             builder.append(imageCharacters.get(i));
                         }
                         pimage = builder.toString();
-                        Picasso.with(getApplicationContext()).load("http://i999.mangareader.net/nanatsu-no-taizai/245/nanatsu-no-taizai-10103275.jpg").into(mpi);
+                        Element table = doc.select("table").get(0);
+                        Table = table.toString();
+
                     } catch (Exception e2) {
                         e2.printStackTrace();
                     }
@@ -110,6 +114,30 @@ String websiteURL = "";
         protected void onPostExecute(Void avoid) {
             super.onPostExecute(avoid);
 
+            mpi.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    f++;
+
+                    Handler handler
+                            = new Handler();
+                    handler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            if (f == 1){
+                                Toast.makeText(ImageViewer.this, Table, Toast.LENGTH_SHORT).show();
+
+                            } else if (f == 2) {
+                                Toast.makeText(ImageViewer.this, websiteURL, Toast.LENGTH_SHORT).show();
+
+                            }
+                            f = 0;
+                        }
+                    }, 500);
+                }
+            });
+
+            Picasso.with(getApplicationContext()).load("http://i999.mangareader.net/nanatsu-no-taizai/245/nanatsu-no-taizai-10103275.jpg").into(mpi);
             String[] titlesArray = images.toArray(new String[images.size()]);
 //            ArrayAdapter<String> adapter = new ArrayAdapter<String>(getListView().getContext(),
 //                    android.R.layout.simple_list_item_1, titlesArray);
